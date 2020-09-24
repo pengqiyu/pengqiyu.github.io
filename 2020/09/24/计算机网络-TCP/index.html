@@ -83,12 +83,12 @@
 
 
 
-<meta name="description" content="1. TCPTCP连接提供的是全双工、点对点的服务。 TCP建立连接是三次握手的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于最大报文长度(MSS)**，其通常有本地发送主机发送的最大链路层帧长度(**最大传">
+<meta name="description" content="1. TCPTCP连接提供的是全双工、点对点的服务。 TCP建立连接是三次握手的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于最大报文长度(MSS)，其通常有本地发送主机发送的最大链路层帧长度(最大传输单元M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机网络-TCP">
 <meta property="og:url" content="http://example.com/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/index.html">
 <meta property="og:site_name" content="Pengqiyu&#39;blog">
-<meta property="og:description" content="1. TCPTCP连接提供的是全双工、点对点的服务。 TCP建立连接是三次握手的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于最大报文长度(MSS)**，其通常有本地发送主机发送的最大链路层帧长度(**最大传">
+<meta property="og:description" content="1. TCPTCP连接提供的是全双工、点对点的服务。 TCP建立连接是三次握手的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于最大报文长度(MSS)，其通常有本地发送主机发送的最大链路层帧长度(最大传输单元M">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/01.png">
 <meta property="og:image" content="http://example.com/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/02.png">
@@ -357,11 +357,10 @@
 
       
         <h3 id="1-TCP"><a href="#1-TCP" class="headerlink" title="1. TCP"></a>1. TCP</h3><p>TCP连接提供的是全双工、点对点的服务。</p>
-<p>TCP建立连接是<strong>三次握手</strong>的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于<strong>最大报文长度(MSS)**，其通常有本地发送主机发送的最大链路层帧长度(**最大传输单元MTU</strong>)来设置。一般来说一个TCP报文段加上TCP/IP首部长度(通常40)要适合单个链路层帧，以太网和PPP链路层协议都有1500字节的MTU，所以MSS的典型值为1460。下面是一个经典的模型。</p>
-<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/01.png"></p>
+<p>TCP建立连接是<strong>三次握手</strong>的过程，建立连接之后，客户进程通过套接字传递数据流，然后由TCP控制。TCP将数据引导到该连接的发送缓存(三次握手期间设置的缓存之一)中，然后TCP从缓存中取出一块数据，将其传递到网络层。TCP可以从缓存中取出并放入报文段中的数据数量受限于<strong>最大报文长度(MSS)</strong>，其通常有本地发送主机发送的最大链路层帧长度(<strong>最大传输单元MTU</strong>)来设置。一般来说一个TCP报文段加上TCP/IP首部长度(通常40)要适合单个链路层帧，以太网和PPP链路层协议都有1500字节的MTU，所以MSS的典型值为1460。下面是一个经典的模型。</p>
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/01.png" alt></p>
 <h3 id="2-TCP报文结构"><a href="#2-TCP报文结构" class="headerlink" title="2. TCP报文结构"></a>2. TCP报文结构</h3><p>下图是TCP报文段结构</p>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/02.png" alt="image-20200717231832043" style="zoom: 33%;">
-
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/02.png" alt="image-20200717231832043" style="zoom: 33%;"></p>
 <ol>
 <li>源端口号与目标端口号，用于多路复用/分解来自上层应用的数据。</li>
 <li>32比特序号子段和32比特确认号字段，用于发送方和接收方实现可靠数据传输服务。</li>
@@ -380,23 +379,19 @@
 <p>TCP中的序列号和确认号是实现可靠传输服务的关键。</p>
 <p>序号表示当前报文携带的应用层数据的第一个字节的编号。可以通过对数据进行划分，然后给每段的第一个字节编号。</p>
 <p>确认号表示这个报文发送方希望收到的来自对方的下一字节的序号。假设<code>A</code>收到了来自<code>B</code>的编号为<code>0~112</code>的所有字节的数据，那么<code>A</code>给<code>B</code>发送的下一个报文中的确认号就是<code>113</code>。TCP只确认数据流中至第一个丢失字节为止的字节，即其是<strong>累计确认的</strong>。一般来说，对于接收方如果收到了失序的报文，会保留失序的字节，并等待缺少的字节来填充间隔。在报文中如果没有数据的话，任然需要有序号。一条TCP链接的双方均是随记地选择初始序号(在三次握手阶段相互交换自己选择的初始序号)。下面是一个交换的例子。</p>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/03.png" alt="image-20200717234515942" style="zoom: 33%;">
-
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/03.png" alt="image-20200717234515942" style="zoom: 33%;"></p>
 <h3 id="3-往返时延的估计与超时"><a href="#3-往返时延的估计与超时" class="headerlink" title="3. 往返时延的估计与超时"></a>3. 往返时延的估计与超时</h3><p>如果希望实现超时重传机制，就需要设置超时间隔长度。显然超时时间间隔必须大于该连接的往返时间(RTT)。但是这个时间并不是固定的，需要发送方根据当前网络状况进行估计。</p>
 <p>报文段的样本RTT是从某报文被发出到该报文段的确认被收到之间的时间量。由于路由器的拥塞和端系统复杂的变化，SampleRTT的值会随之波动。为了估计一个典型的RTT，要采取某种对SampleRTT取平均的办法。TCP维持一个SampleRTT的均值(EstimatedRTT)，获得一个新的SampleRTT，利用如下的公式来更新EstimatedRTT。$\alpha$推荐值为0.125。</p>
-<p>$$EstimatedRTT = (1 - \alpha) EstimatedRTT + \alpha SampleRTT$$</p>
-<p>上述是进行<strong>指数加权滑动平均</strong>，最终EstimatedRTT趋于平缓。</p>
+<script type="math/tex; mode=display">EstimatedRTT = (1 - \alpha) EstimatedRTT + \alpha SampleRTT</script><p>上述是进行<strong>指数加权滑动平均</strong>，最终EstimatedRTT趋于平缓。</p>
 <p>除了估算RTT之外，RTT的变化可以用RTT偏差<code>DevRTT</code>来估算SampleRTT一般会偏离EstimatedRTT的程度。$\beta$推荐值为0.25。</p>
-<p>$$DevRTT = (1 - \beta)  DevRTT + \beta |SampleRTT - EstimatedRTT|$$</p>
-<p>有了EstimatedRTT和DevRTT，TCP的超时间隔可以进行如下设置：</p>
+<script type="math/tex; mode=display">DevRTT = (1 - \beta)  DevRTT + \beta |SampleRTT - EstimatedRTT|</script><p>有了EstimatedRTT和DevRTT，TCP的超时间隔可以进行如下设置：</p>
 <ol>
 <li>超时间隔应该大于等于EstimatedRTT</li>
 <li>超时间隔不能大太多，否则当报文丢失时，不能很快重传该报文</li>
 <li>当SampleRTT波动大时，余量应该较大，波动较小时余量应该较小。</li>
 </ol>
 <p>所以使用下面的公式：</p>
-<p>$$TimeoutInterval = EstimatedRTT + 4 \cdot DevRTT$$</p>
-<p>初始的TimeoutInterval为1秒，出现超时后加倍，以免即将被确认的后继报文段过早出现超时。然而只要收到报文段就更新EstimatedRTT, 并用上述公式再次计算TimeoutInterval。</p>
+<script type="math/tex; mode=display">TimeoutInterval = EstimatedRTT + 4 \cdot DevRTT</script><p>初始的TimeoutInterval为1秒，出现超时后加倍，以免即将被确认的后继报文段过早出现超时。然而只要收到报文段就更新EstimatedRTT, 并用上述公式再次计算TimeoutInterval。</p>
 <h3 id="4-可靠数据传输"><a href="#4-可靠数据传输" class="headerlink" title="4. 可靠数据传输"></a>4. 可靠数据传输</h3><h4 id="4-1-超时间隔加倍"><a href="#4-1-超时间隔加倍" class="headerlink" title="4.1 超时间隔加倍"></a>4.1 超时间隔加倍</h4><p>在每次发生超时的时候，将定时器的时间设置为之前的两倍，收到一个确认之后再使用上面的公式设定。这是一种简单的拥塞控制。在拥塞的时候如果持续重传分组，会使拥塞更加严重，相反，每个发送方的重传搜经过越来越长的时间间隔后进行。</p>
 <h4 id="4-2-快速重传"><a href="#4-2-快速重传" class="headerlink" title="4.2 快速重传"></a>4.2 快速重传</h4><p>超时重传的带来的周期可能较长，如果一个分组丢失的话，会带来较长的端到端延时。发送方可以在超时事件发生之前通过注意<strong>冗余ACK</strong>来检测到丢包的出现。</p>
 <p>当发送了一个序列，然后中间的一个包丢了，接收方接收到失序的包时就会想发送方发送第一个确实的包ACK。当接收方接收到3个冗余的ACK时，TCP就执行快速重传，而不是等到超时事件发生。</p>
@@ -408,44 +403,24 @@
 <li>LastByteRcvd：从网络中到达的且已放入主机B接收缓存中的数据流的最后一个字节编号</li>
 </ol>
 <p>为了避免缓存溢出，所以有：</p>
-<p>$$LastByteRcvd - LastByteRead \leq RcvBuffer$$</p>
-<p>可用空间为</p>
-<p>$$rwnd = RcvBuff - [LastByteRcvd - LastByteRead]$$</p>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/04.png" alt="image-20200718171922425" style="zoom: 50%;">
-
+<script type="math/tex; mode=display">LastByteRcvd - LastByteRead \leq RcvBuffer</script><p>可用空间为</p>
+<script type="math/tex; mode=display">rwnd = RcvBuff - [LastByteRcvd - LastByteRead]</script><p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/04.png" alt="image-20200718171922425" style="zoom: 50%;"></p>
 <p>主机轮流维护两个变量LastByteSent和LastByteAcked，通过将未确认的数据量控制在值<code>rwnd</code>中，从而保证发送方不会是接收方接收缓存溢出。所以发送方需要保证如下的表达式：</p>
-<p>$$LastByteSent - LastByteAcked \leq rwnd$$</p>
-<p>当接收方接收缓存已满，且B没有数据要发送给A，则当B的缓存有空闲的时候，A任然不知道。所以当B的窗口为零的时候，主机A继续发送只有一个字节数据的报文段。这些报文段会被接收方确认。最终缓存开始清空，且确认报文里包含一个非零的rwnd值。</p>
+<script type="math/tex; mode=display">LastByteSent - LastByteAcked \leq rwnd</script><p>当接收方接收缓存已满，且B没有数据要发送给A，则当B的缓存有空闲的时候，A任然不知道。所以当B的窗口为零的时候，主机A继续发送只有一个字节数据的报文段。这些报文段会被接收方确认。最终缓存开始清空，且确认报文里包含一个非零的rwnd值。</p>
 <h3 id="5-TCP连接管理"><a href="#5-TCP连接管理" class="headerlink" title="5. TCP连接管理"></a>5. TCP连接管理</h3><p>如何建立和拆除一条TCP连接。</p>
 <p>建立链接、三次握手：</p>
 <ol>
 <li>客户端TCP向服务器端的TCP发送一个特殊的TCP报文段。不包含应用层数据，报文段首部中的<code>SYN</code>标志位置为1，被称为<strong>SYN报文段</strong>。客户端随机选择一个初始序号<code>client_isn</code>，将其置于SYN报文段的序号字段中。</li>
-<li>SYN报文段到达服务器之后，服务器识别出这是个SYN，则为该TCP链接分配TCP缓存和变量，性客户端发送允许链接的报文段，也不包含应用层数据。然后将这个报文段首部的确认号字段置为<code>client_isn + 1</code>。然后服务器选择自己的初始序号<code>server_isn</code>，将其置在首部的序号字段中。这个称为**<code>SYNACK</code>把报文段。**</li>
+<li>SYN报文段到达服务器之后，服务器识别出这是个SYN，则为该TCP链接分配TCP缓存和变量，性客户端发送允许链接的报文段，也不包含应用层数据。然后将这个报文段首部的确认号字段置为<code>client_isn + 1</code>。然后服务器选择自己的初始序号<code>server_isn</code>，将其置在首部的序号字段中。这个称为<strong><code>SYNACK</code>把报文段。</strong></li>
 <li>收到SYNACK报文段后，客户也要为该连接分配缓存和变量。然后客户想服务器发送一个波啊文孤单，对服务器允许链接的报文段进行确认(将<code>server_isn + 1</code>放置到TCP报文段首部的确认字段中)。SYN被置为零，这个报文段可以携带客户到服务器的数据。</li>
 </ol>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/05.png" alt="image-20200718173303895" style="zoom: 33%;">
-
-
-
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/05.png" alt="image-20200718173303895" style="zoom: 33%;"></p>
 <p>拆除链接，四次挥手：</p>
 <p>当连接结束之后，主机中的资源会被释放。由于TCP是全双工的，所以当某一方打算关闭连接，则其发送一个首部中的<code>FIN</code>标志位为1的字段，表示自己要发送的数据发送完毕了。不过之后另一个方向还可以继续放松和接受数据。直到最后双方都结束。</p>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/06.png" alt="image-20200718173818040" style="zoom:33%;">
-
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/06.png" alt="image-20200718173818040" style="zoom:33%;"></p>
 <p>下面是客户端和服务器段TCP状态机。</p>
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/07.png" alt="image-20200718173934346" style="zoom:33%;">
-
-<img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/08.png" alt="image-20200718173955120" style="zoom:33%;">
-
-
-
-
-
-
-
-
-
-
-
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/07.png" alt="image-20200718173934346" style="zoom:33%;"></p>
+<p><img src="/2020/09/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-TCP/08.png" alt="image-20200718173955120" style="zoom:33%;"></p>
 
       
     </div>

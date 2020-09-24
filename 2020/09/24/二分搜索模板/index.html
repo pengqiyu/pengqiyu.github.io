@@ -353,7 +353,6 @@
 
       
         <h3 id="万能模板"><a href="#万能模板" class="headerlink" title="万能模板"></a>万能模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def bisect(a,target):</span><br><span class="line">    l,r&#x3D;0,len(a)-1   </span><br><span class="line">    res&#x3D;1e9   #-1e9</span><br><span class="line">    while l&lt;&#x3D;r:</span><br><span class="line">        mid&#x3D;l+r&gt;&gt;1</span><br><span class="line">        if check(mid)&gt;&#x3D;target:   #check(mid)&lt;&#x3D;target</span><br><span class="line">            res&#x3D;min(res,mid)     #res&#x3D;max(res,mid)</span><br><span class="line">            r&#x3D;mid-1                #l&#x3D;mid+1</span><br><span class="line">        else:</span><br><span class="line">            res&#x3D;max(res,mid)    #res&#x3D;min(res,mid)</span><br><span class="line">            l&#x3D;mid+1             #r&#x3D;mid-1</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>此二分模板针对任意一种涉及二分的题目都适用，具体选用注释的语句还是没注释的语句根据实际的问题进行分析。</li>
 <li>针对于求最大最小值的情况，res可赋初始值为-1e9或者1e9。其他情况res可以根据问题灵活赋初值。</li>
@@ -368,20 +367,17 @@
 <p>根据t的定义，<code>t[i]</code>对应了一个结尾元素最小的上升序列[a<sub>0</sub>,a<sub>1</sub>,…,a<sub>i</sub>],t[i]=a<sub>i</sub>。</p>
 <p>​                        <code>t[j]</code>对应了一个结尾元素最小的上升序列[b<sub>0</sub>,b<sub>1</sub>,…b<sub>i</sub>,b<sub>i+1</sub>…b<sub>j</sub>]=b<sub>j</sub>。</p>
 <p>由于是上升序列，显然b<sub>j</sub>&gt;b<sub>i</sub>。</p>
-<p>根据假设，则存在a<sub>i</sub>&gt;=b<sub>j</sub>。即b<sub>i</sub>&lt;a<sub>i</sub>。与<code>t[i]</code>的定义结尾元素最小矛盾。所以<code>t</code>数组必然单调递增。</p>
+<p>根据假设，则存在a<sub>i</sub>&gt;=b<sub>j</sub>。即b<sub>i</sub><a<sub>i&lt;/sub&gt;。与<code>t[i]</code>的定义结尾元素最小矛盾。所以<code>t</code>数组必然单调递增。</a<sub></p>
 <p>3.遍历数组<code>a</code>中的元素<code>x</code></p>
 <ul>
 <li>如果<code>t</code>中不存在大于等于<code>x</code>的数，即<code>t[-1]&lt;</code>x或者<code>t==[]</code>。就把<code>x</code>加入到<code>t</code>的末尾。</li>
 <li>如果<code>t</code>中存在等于<code>x</code>的数，那我们什么都不用做。因为以<code>x</code>结尾的最短上升子序列已经存在。</li>
 <li>如果<code>t</code>中存在大于<code>x</code>的数，我们就找到<strong>第一个比<code>x</code>大的元素</strong>，把他变成<code>x</code>，这样我们就找到了一个<strong>结尾更小</strong>的<strong>相同长度</strong>的上升子序列。</li>
 </ul>
-<p>注意：这一步可以认为是「贪心算法」，总是做出在当前看来最好的选择，当前「最好的选    择」是：当前只让<strong>第 1 个严格大于</strong> <code>x</code> 的数变小，变成<code> x</code>，这一步操作是“无后效性”的。由于是在有序数组中的操作，因此可以使用「二分查找算法」。</p>
+<p>注意：这一步可以认为是「贪心算法」，总是做出在当前看来最好的选择，当前「最好的选    择」是：当前只让<strong>第 1 个严格大于</strong> <code>x</code> 的数变小，变成<code>x</code>，这一步操作是“无后效性”的。由于是在有序数组中的操作，因此可以使用「二分查找算法」。</p>
 </li>
 <li><p>代码</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def lengthOfLIS(self, a: List[int]) -&gt; int:</span><br><span class="line">        t&#x3D;[]</span><br><span class="line">        for x in a:</span><br><span class="line">            if not t or t[-1]&lt;x:</span><br><span class="line">                t.append(x)</span><br><span class="line">                continue</span><br><span class="line">            l,r&#x3D;0,len(t)-1</span><br><span class="line">            res&#x3D;1e9</span><br><span class="line">            while l&lt;&#x3D;r:</span><br><span class="line">            	mid&#x3D;l+r&gt;&gt;1</span><br><span class="line">            	if t[mid]&gt;&#x3D;x:</span><br><span class="line">            		res&#x3D;min(res,mid)</span><br><span class="line">            		r&#x3D;mid-1</span><br><span class="line">            	else:</span><br><span class="line">            		l&#x3D;mid+1</span><br><span class="line">            if res!&#x3D;1e9:</span><br><span class="line">            	t[res]&#x3D;x</span><br><span class="line">        return len(t)</span><br></pre></td></tr></table></figure>
-
-
-
 </li>
 </ul>
 
@@ -773,6 +769,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
