@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="树状数组,高级数据结构,模板," />
+  <meta name="keywords" content="dfs,leetcode,medium，bfs," />
 
 
 
@@ -83,20 +83,22 @@
 
 
 
-<meta name="description" content="完整版12345678910111213141516171819202122232425262728class T():    def __init__(self,a):        self.a&#x3D;a        self.s&#x3D;(len(a)+1)*[0]        for i in range(len(a)):            self.updatesum(i+1,a[i])">
+<meta name="description" content="题目 思路及代码 从根节点开始。因为第 0 层只有一个节点，不需要处理。可以在上一层为下一层建立next指针。该方法最重要的一点是：位于第x层时为第x+1层建立 next指针。一旦完成这些连接操作，移至第x+1层的第一个节点为第 x+2层建立 next 指针。  当遍历到某层节点时，该层节点的 next 指针已经建立。这样就不需要队列从而节省空间。每次只要知道下一层的最左边的节点，就可以从该节点开">
 <meta property="og:type" content="article">
-<meta property="og:title" content="树状数组模板">
-<meta property="og:url" content="http://example.com/2020/09/26/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%A8%A1%E6%9D%BF/index.html">
+<meta property="og:title" content="leetcode每日一题-117. 填充每个节点的下一个右侧节点指针 II">
+<meta property="og:url" content="http://example.com/2020/09/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88-II/index.html">
 <meta property="og:site_name" content="Pengqiyu&#39;blog">
-<meta property="og:description" content="完整版12345678910111213141516171819202122232425262728class T():    def __init__(self,a):        self.a&#x3D;a        self.s&#x3D;(len(a)+1)*[0]        for i in range(len(a)):            self.updatesum(i+1,a[i])">
+<meta property="og:description" content="题目 思路及代码 从根节点开始。因为第 0 层只有一个节点，不需要处理。可以在上一层为下一层建立next指针。该方法最重要的一点是：位于第x层时为第x+1层建立 next指针。一旦完成这些连接操作，移至第x+1层的第一个节点为第 x+2层建立 next 指针。  当遍历到某层节点时，该层节点的 next 指针已经建立。这样就不需要队列从而节省空间。每次只要知道下一层的最左边的节点，就可以从该节点开">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-26T15:18:28.000Z">
-<meta property="article:modified_time" content="2020-09-26T15:21:24.563Z">
+<meta property="og:image" content="http://example.com/2020/09/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88-II/1.png">
+<meta property="article:published_time" content="2020-09-28T11:16:14.000Z">
+<meta property="article:modified_time" content="2020-09-28T11:20:56.051Z">
 <meta property="article:author" content="彭启宇">
-<meta property="article:tag" content="树状数组">
-<meta property="article:tag" content="高级数据结构">
-<meta property="article:tag" content="模板">
+<meta property="article:tag" content="dfs">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="medium，bfs">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/09/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88-II/1.png">
 
 
 
@@ -126,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2020/09/26/树状数组模板/"/>
+  <link rel="canonical" href="http://example.com/2020/09/28/leetcode每日一题-117-填充每个节点的下一个右侧节点指针-II/"/>
 
 
 
 
 
-  <title>树状数组模板 | Pengqiyu'blog</title>
+  <title>leetcode每日一题-117. 填充每个节点的下一个右侧节点指针 II | Pengqiyu'blog</title>
   
 
 
@@ -259,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/26/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E6%A8%A1%E6%9D%BF/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="彭启宇">
@@ -276,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">树状数组模板</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode每日一题-117. 填充每个节点的下一个右侧节点指针 II</h1>
         
 
         <div class="post-meta">
@@ -288,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-26T23:18:28+08:00">
-                2020-09-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-28T19:16:14+08:00">
+                2020-09-28
               </time>
             
 
@@ -311,8 +313,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%A8%A1%E6%9D%BF/" itemprop="url" rel="index">
-                    <span itemprop="name">模板</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -342,7 +344,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  217
+                  315
                 </span>
               
 
@@ -379,8 +381,15 @@
       
 
       
-        <h1 id="完整版"><a href="#完整版" class="headerlink" title="完整版"></a>完整版</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">T</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a)</span>:</span></span><br><span class="line">        self.a=a</span><br><span class="line">        self.s=(len(a)+<span class="number">1</span>)*[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">            self.updatesum(i+<span class="number">1</span>,a[i])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowbit</span><span class="params">(self,x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> x&amp;(-x)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self,i,val)</span>:</span>              <span class="comment">#单点更新</span></span><br><span class="line">        self.updatesum(i+<span class="number">1</span>,val-self.a[i])</span><br><span class="line">        self.a[i]=val</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">updatesum</span><span class="params">(self,i,diff)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;len(self.s):</span><br><span class="line">            self.s[i]+=diff</span><br><span class="line">            i+=self.lowbit(i)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">presum</span><span class="params">(self,i)</span>:</span></span><br><span class="line">        res=<span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> i&gt;<span class="number">0</span>:</span><br><span class="line">            res+=self.s[i]</span><br><span class="line">            i-=self.lowbit(i)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">range</span><span class="params">(self,i,j)</span>:</span>              <span class="comment">#范围查找</span></span><br><span class="line">        <span class="keyword">return</span> self.presum(j+<span class="number">1</span>)-self.presum(i)</span><br></pre></td></tr></table></figure>
-<h1 id="简洁版"><a href="#简洁版" class="headerlink" title="简洁版"></a>简洁版</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">T</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,a)</span>:</span></span><br><span class="line">        self.s=[<span class="number">0</span>]*(len(a)+<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">            now=i+<span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> now&lt;len(self.s):</span><br><span class="line">                self.s[now]+=a[i]</span><br><span class="line">                now+=(now&amp;(-now))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">range</span><span class="params">(self,i,j)</span>:</span></span><br><span class="line">        res1=<span class="number">0</span></span><br><span class="line">        res2=<span class="number">0</span></span><br><span class="line">        j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&gt;<span class="number">0</span>:</span><br><span class="line">            res1+=self.s[i]</span><br><span class="line">            i-=(i&amp;(-i))</span><br><span class="line">        <span class="keyword">while</span> j&gt;<span class="number">0</span>:</span><br><span class="line">            res2+=self.s[j]</span><br><span class="line">            j-=(j&amp;(-j))</span><br><span class="line">        <span class="keyword">return</span> res2-res1</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self,i,val)</span>:</span></span><br><span class="line">        diff=val-a[i]</span><br><span class="line">        i+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> i&lt;len(self.s):</span><br><span class="line">            self.s[i]+=diff</span><br><span class="line">            i+=(i&amp;(-i))</span><br></pre></td></tr></table></figure>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2020/09/28/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-117-%E5%A1%AB%E5%85%85%E6%AF%8F%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E5%8F%B3%E4%BE%A7%E8%8A%82%E7%82%B9%E6%8C%87%E9%92%88-II/1.png" alt="leetcode 117"></p>
+<h1 id="思路及代码"><a href="#思路及代码" class="headerlink" title="思路及代码"></a>思路及代码</h1><ul>
+<li><p>从根节点开始。因为第 0 层只有一个节点，不需要处理。可以在上一层为下一层建立<code>next</code>指针。该方法最重要的一点是：位于第<code>x</code>层时为第<code>x+1</code>层建立 <code>next</code>指针。一旦完成这些连接操作，移至第<code>x+1</code>层的第一个节点为第 <code>x+2</code>层建立 <code>next</code> 指针。</p>
+</li>
+<li><p>当遍历到某层节点时，该层节点的 <code>next</code> 指针已经建立。这样就不需要队列从而节省空间。每次只要知道下一层的最左边的节点，就可以从该节点开始，像遍历链表一样遍历该层的所有节点。</p>
+<h4 id="BFS代码"><a href="#BFS代码" class="headerlink" title="BFS代码"></a>BFS代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self, r: <span class="string">'Node'</span>)</span> -&gt; 'Node':</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> r: <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        now=r</span><br><span class="line">        <span class="keyword">while</span> now:</span><br><span class="line">            last,next_now=<span class="literal">None</span>,<span class="literal">None</span></span><br><span class="line">            <span class="keyword">while</span> now:</span><br><span class="line">                <span class="keyword">if</span> now.left:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> next_now: next_now=now.left</span><br><span class="line">                    <span class="keyword">if</span> last: last.next=now.left</span><br><span class="line">                    last=now.left</span><br><span class="line">                <span class="keyword">if</span> now.right:</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> next_now: next_now=now.right</span><br><span class="line">                    <span class="keyword">if</span> last: last.next=now.right</span><br><span class="line">                    last=now.right</span><br><span class="line">                now=now.next</span><br><span class="line">            now=next_now</span><br><span class="line">        <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
+<h4 id="DFS代码"><a href="#DFS代码" class="headerlink" title="DFS代码"></a>DFS代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self, r: <span class="string">'Node'</span>)</span> -&gt; 'Node':</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(r)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> r: <span class="keyword">return</span> </span><br><span class="line">            res=<span class="literal">None</span></span><br><span class="line">            last=<span class="literal">None</span></span><br><span class="line">            <span class="keyword">while</span> r:</span><br><span class="line">                <span class="keyword">if</span> r.left:</span><br><span class="line">                    <span class="keyword">if</span> last: last.next=r.left</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> res: res=r.left</span><br><span class="line">                    last=r.left</span><br><span class="line">                <span class="keyword">if</span> r.right:</span><br><span class="line">                    <span class="keyword">if</span> last: last.next=r.right</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> res: res=r.right</span><br><span class="line">                    last=r.right</span><br><span class="line">                r=r.next</span><br><span class="line">            dfs(res)</span><br><span class="line">        dfs(r)</span><br><span class="line">        <span class="keyword">return</span> r</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -398,11 +407,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag"># 树状数组</a>
+            <a href="/tags/dfs/" rel="tag"># dfs</a>
           
-            <a href="/tags/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 高级数据结构</a>
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
-            <a href="/tags/%E6%A8%A1%E6%9D%BF/" rel="tag"># 模板</a>
+            <a href="/tags/medium%EF%BC%8Cbfs/" rel="tag"># medium，bfs</a>
           
         </div>
       
@@ -415,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/26/C-%E5%9F%BA%E7%A1%80-%E5%A4%9A%E6%80%81%E8%AF%A6%E8%A7%A3/" rel="next" title="C++基础-多态详解">
-                <i class="fa fa-chevron-left"></i> C++基础-多态详解
+              <a href="/2020/09/27/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-235-%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E7%9A%84%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88/" rel="next" title="leetcode每日一题-235. 二叉搜索树的最近公共祖先">
+                <i class="fa fa-chevron-left"></i> leetcode每日一题-235. 二叉搜索树的最近公共祖先
               </a>
             
           </div>
@@ -424,10 +433,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/27/PAT-Acute-Stroke/" rel="prev" title="PAT-Acute Stroke">
-                PAT-Acute Stroke <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -559,7 +564,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#完整版"><span class="nav-number">1.</span> <span class="nav-text">完整版</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简洁版"><span class="nav-number">2.</span> <span class="nav-text">简洁版</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路及代码"><span class="nav-number">2.</span> <span class="nav-text">思路及代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BFS代码"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">BFS代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DFS代码"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">DFS代码</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
