@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="博客搭建," />
+  <meta name="keywords" content="dfs,leetcode,hard,动态规划," />
 
 
 
@@ -83,18 +83,23 @@
 
 
 
-<meta name="description" content="hexo搭建个人博客1. 简介hexo是一个个人博客框架，可以在本地写好博客之后，然后同步到github上，这样就能够搭建起个人的一个博客。hexo可以通过简单的命令行操作来轻松创建博客。 2. 环境配置首先在本地安装node.js 具体安装参考官网 安装完成之后，可以将node的源改为国内阿里镜像 npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.n">
+<meta name="description" content="思路及代码 首先定义dfs(u,l,t)代表以u为上界开始，l为左界，切成t块披萨的切割方案总数。 递归的出口：如果t&#x3D;&#x3D;1，则表示只需要切0刀。那么如果此时的披萨上有苹果，就返回1，代表有一种切割方案；否则返回0，代表没有满足题目要求的方案。 递归的过程：dfs(u,l,t)&#x3D;dfs(x,l,t)+dfs(u,y,t)其中x是所有满足切割条件(即切下来的披萨至少有一块苹果)的水平切割线；y为所">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo搭建个人博客">
-<meta property="og:url" content="http://example.com/2020/09/24/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="leetcode 1444. 切披萨的方案数">
+<meta property="og:url" content="http://example.com/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/index.html">
 <meta property="og:site_name" content="Pengqiyu&#39;blog">
-<meta property="og:description" content="hexo搭建个人博客1. 简介hexo是一个个人博客框架，可以在本地写好博客之后，然后同步到github上，这样就能够搭建起个人的一个博客。hexo可以通过简单的命令行操作来轻松创建博客。 2. 环境配置首先在本地安装node.js 具体安装参考官网 安装完成之后，可以将node的源改为国内阿里镜像 npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.n">
+<meta property="og:description" content="思路及代码 首先定义dfs(u,l,t)代表以u为上界开始，l为左界，切成t块披萨的切割方案总数。 递归的出口：如果t&#x3D;&#x3D;1，则表示只需要切0刀。那么如果此时的披萨上有苹果，就返回1，代表有一种切割方案；否则返回0，代表没有满足题目要求的方案。 递归的过程：dfs(u,l,t)&#x3D;dfs(x,l,t)+dfs(u,y,t)其中x是所有满足切割条件(即切下来的披萨至少有一块苹果)的水平切割线；y为所">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-09-24T05:45:09.000Z">
-<meta property="article:modified_time" content="2020-09-24T16:17:55.206Z">
+<meta property="og:image" content="http://example.com/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/1.png">
+<meta property="article:published_time" content="2020-10-08T14:27:17.000Z">
+<meta property="article:modified_time" content="2020-10-08T14:38:24.095Z">
 <meta property="article:author" content="彭启宇">
-<meta property="article:tag" content="博客搭建">
+<meta property="article:tag" content="dfs">
+<meta property="article:tag" content="leetcode">
+<meta property="article:tag" content="hard">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/1.png">
 
 
 
@@ -124,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2020/09/24/hexo搭建个人博客/"/>
+  <link rel="canonical" href="http://example.com/2020/10/08/leetcode-1444-切披萨的方案数/"/>
 
 
 
 
 
-  <title>hexo搭建个人博客 | Pengqiyu'blog</title>
+  <title>leetcode 1444. 切披萨的方案数 | Pengqiyu'blog</title>
   
 
 
@@ -257,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/09/24/hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="彭启宇">
@@ -274,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">hexo搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode 1444. 切披萨的方案数</h1>
         
 
         <div class="post-meta">
@@ -286,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-24T13:45:09+08:00">
-                2020-09-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-08T22:27:17+08:00">
+                2020-10-08
               </time>
             
 
@@ -309,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
                   </a>
                 </span>
 
@@ -340,7 +345,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  928
+                  316
                 </span>
               
 
@@ -356,7 +361,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  1
                 </span>
               
             </div>
@@ -377,38 +382,13 @@
       
 
       
-        <h2 id="hexo搭建个人博客"><a href="#hexo搭建个人博客" class="headerlink" title="hexo搭建个人博客"></a>hexo搭建个人博客</h2><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h3><p>hexo是一个个人博客框架，可以在本地写好博客之后，然后同步到github上，这样就能够搭建起个人的一个博客。hexo可以通过简单的命令行操作来轻松创建博客。</p>
-<h3 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2. 环境配置"></a>2. 环境配置</h3><p>首先在本地安装<code>node.js</code> 具体安装参考官网</p>
-<p>安装完成之后，可以将node的源改为国内阿里镜像</p>
-<p><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p>
-<p>安装完成之后可以使用<code>cnpm</code>安装依赖</p>
-<p>首先安装<code>hexo</code>框架</p>
-<p><code>cnpm install -g hexo-cli</code></p>
-<p>然后创建文件夹，如<code>blog</code>之后的所有内容都在这个文件夹中</p>
-<p>进入到文件夹中，运行<code>hexo init</code>初始化，下载相关文件</p>
-<p>其中<code>_config.yml</code>是配置文件</p>
-<p><code>hexo s</code>为启动博客，一般只是用于测试</p>
-<p><code>hexo n &quot;我的第一篇博客&quot;</code> 会在<code>/source/_post</code>文件夹下中存在着创建的文章，为md格式，然后利用编辑器编辑即可。</p>
-<p>创建完博客之后，在<code>blog</code>目录下运行如下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  <span class="comment"># 清理文件</span></span><br><span class="line">hexo g     <span class="comment"># 重新生成</span></span><br><span class="line">hexo s     <span class="comment"># 启动服务  然后在本地进行测试</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-版本问题"><a href="#3-版本问题" class="headerlink" title="3.版本问题"></a>3.版本问题</h3><p>hexo及其插件的版本不一致会导致很多的错误。比如博客内置导航的中文乱码、目录toc不跟着所读页面走、博客界面乱码等等。插件及其版本号在博客根目录下的<code>package.json</code>进行配置。一个自己使用着的没有问题的版本号中<code>package.json</code>中内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;hexo-site&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;0.0.0&quot;,</span><br><span class="line">  &quot;private&quot;: true,</span><br><span class="line">  &quot;hexo&quot;: &#123;</span><br><span class="line">    &quot;version&quot;: &quot;4.2.1&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;hexo&quot;: &quot;^4.2.1&quot;,</span><br><span class="line">    &quot;hexo-asset-image&quot;: &quot;git+https:&#x2F;&#x2F;github.com&#x2F;7ym0n&#x2F;hexo-asset-image.git&quot;,</span><br><span class="line">    &quot;hexo-deployer-git&quot;: &quot;^2.1.0&quot;,</span><br><span class="line">    &quot;hexo-generator-archive&quot;: &quot;^0.1.5&quot;,</span><br><span class="line">    &quot;hexo-generator-category&quot;: &quot;^0.1.3&quot;,</span><br><span class="line">    &quot;hexo-generator-index&quot;: &quot;^0.2.1&quot;,</span><br><span class="line">    &quot;hexo-generator-tag&quot;: &quot;^0.2.0&quot;,</span><br><span class="line">    &quot;hexo-renderer-ejs&quot;: &quot;^0.3.1&quot;,</span><br><span class="line">    &quot;hexo-renderer-kramed&quot;: &quot;^0.1.4&quot;,</span><br><span class="line">    &quot;hexo-renderer-stylus&quot;: &quot;^0.3.3&quot;,</span><br><span class="line">    &quot;hexo-server&quot;: &quot;^0.3.3&quot;,</span><br><span class="line">    &quot;hexo-wordcount&quot;: &quot;git+https:&#x2F;&#x2F;github.com&#x2F;willin&#x2F;hexo-wordcount.git&quot;,</span><br><span class="line">    &quot;markdown-it-katex&quot;: &quot;^2.0.3&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-部署到github"><a href="#4-部署到github" class="headerlink" title="4. 部署到github"></a>4. 部署到github</h3><p>在个人github账号中创建仓库<code>user_name.github.io</code></p>
-<p>得到仓库路径之后，需要配置<code>blod/_config.yml</code></p>
-<p>配置最后的<code>Deployment</code>，如下所示：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/pengqiyu/pengqiyu.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-<p>然后运行<code>hexo d</code>即可完成部署</p>
-<p>然后访问<code>pengqiyu.github.io</code>即可访问到自己的博客</p>
-<p>在每次写博客的时候，需要进行的操作是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hexo n blog_name  <span class="comment"># 创建博客 ， 编辑内容</span></span><br><span class="line">hexo clean  <span class="comment"># 清空内容</span></span><br><span class="line">hexo g  <span class="comment"># 重新生成</span></span><br><span class="line">hexo s  <span class="comment"># 本地启动测试</span></span><br><span class="line">hexo d  <span class="comment"># 部署到远程</span></span><br></pre></td></tr></table></figure>
-<h3 id="5-修改主题"><a href="#5-修改主题" class="headerlink" title="5. 修改主题"></a>5. 修改主题</h3><p>这里使用的是<code>yilia</code>主题，<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">项目地址</a></p>
-<p>具体使用过程如下：</p>
-<p>将项目pull到<code>blog/themes</code>文件夹下</p>
-<p>然后修改<code>blod/_config.yml</code>中的<code>theme</code>为上述主题，如下所示：</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">yilia</span></span><br></pre></td></tr></table></figure>
-<p>然后重新整个博客项目即可。具体的<code>yilia</code>相关的配置，可以参考项目。</p>
-<h3 id="6-添加图片"><a href="#6-添加图片" class="headerlink" title="6. 添加图片"></a>6. 添加图片</h3><p>首先在<code>hexo</code>的配置文件中将<code>post_asset_folder</code>设置为<code>true</code>，这样在创建一个文档的时候，会创建一个同名的文件夹，可用于存放这个博客的资源。</p>
-<p>然后安装已经修改过得插件<code>npm install https://github.com/7ym0n/hexo-asset-image --sa</code> </p>
-<p>之后在笔记中直接使用md的语法，生成的文档就能够正常显示图片</p>
+        <p><img src="/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/1.png" alt="leetcode 1444"></p>
+<h1 id="思路及代码"><a href="#思路及代码" class="headerlink" title="思路及代码"></a>思路及代码</h1><ul>
+<li>首先定义<code>dfs(u,l,t)</code>代表以<code>u</code>为上界开始，<code>l</code>为左界，切成<code>t</code>块披萨的切割方案总数。</li>
+<li>递归的出口：如果<code>t==1</code>，则表示只需要切0刀。那么如果此时的披萨上有苹果，就返回1，代表有一种切割方案；否则返回0，代表没有满足题目要求的方案。</li>
+<li>递归的过程：<code>dfs(u,l,t)=dfs(x,l,t)+dfs(u,y,t)</code>其中x是所有满足切割条件(即切下来的披萨至少有一块苹果)的水平切割线；y为所有满足条件的垂直切割线。需要用两个for循环分别在水平和竖直方向找到所有的<code>x</code>和<code>y</code>相加。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ways</span><span class="params">(self, a: List[str], k: int)</span> -&gt; int:</span></span><br><span class="line"><span class="meta">        @lru_cache(None)</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(u,l,t)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> t==<span class="number">1</span>:</span><br><span class="line">                f=<span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(u,len(a)):</span><br><span class="line">                    <span class="keyword">for</span> j <span class="keyword">in</span> range(l,len(a[<span class="number">0</span>])):</span><br><span class="line">                        <span class="keyword">if</span> a[i][j]==<span class="string">'A'</span>:</span><br><span class="line">                            f=<span class="number">1</span></span><br><span class="line">                <span class="keyword">return</span> f</span><br><span class="line">            x=y=res=<span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(u+<span class="number">1</span>,len(a)):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(l,len(a[<span class="number">0</span>])):</span><br><span class="line">                    <span class="keyword">if</span> a[i<span class="number">-1</span>][j]==<span class="string">'A'</span>:</span><br><span class="line">                        x=<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> x:</span><br><span class="line">                    res+=dfs(i,l,t<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(l+<span class="number">1</span>,len(a[<span class="number">0</span>])):</span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(u,len(a)):</span><br><span class="line">                    <span class="keyword">if</span> a[j][i<span class="number">-1</span>]==<span class="string">'A'</span>:</span><br><span class="line">                        y=<span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> y:</span><br><span class="line">                    res+=dfs(u,i,t<span class="number">-1</span>)</span><br><span class="line">            <span class="keyword">return</span> res%(<span class="number">10</span>**<span class="number">9</span>+<span class="number">7</span>)</span><br><span class="line">        <span class="keyword">return</span> dfs(<span class="number">0</span>,<span class="number">0</span>,k)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -426,7 +406,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag"># 博客搭建</a>
+            <a href="/tags/dfs/" rel="tag"># dfs</a>
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+            <a href="/tags/hard/" rel="tag"># hard</a>
+          
+            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
           
         </div>
       
@@ -439,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/22/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-968-%E7%9B%91%E6%8E%A7%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="next" title="leetcode每日一题-968.监控二叉树">
-                <i class="fa fa-chevron-left"></i> leetcode每日一题-968.监控二叉树
+              <a href="/2020/10/07/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-834-%E6%A0%91%E4%B8%AD%E8%B7%9D%E7%A6%BB%E4%B9%8B%E5%92%8C/" rel="next" title="leetcode每日一题-834. 树中距离之和">
+                <i class="fa fa-chevron-left"></i> leetcode每日一题-834. 树中距离之和
               </a>
             
           </div>
@@ -448,10 +434,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/24/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E6%A8%A1%E6%9D%BF/" rel="prev" title="二分搜索模板">
-                二分搜索模板 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,7 +565,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo搭建个人博客"><span class="nav-number">1.</span> <span class="nav-text">hexo搭建个人博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-环境配置"><span class="nav-number">1.2.</span> <span class="nav-text">2. 环境配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-版本问题"><span class="nav-number">1.3.</span> <span class="nav-text">3.版本问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-部署到github"><span class="nav-number">1.4.</span> <span class="nav-text">4. 部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-修改主题"><span class="nav-number">1.5.</span> <span class="nav-text">5. 修改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加图片"><span class="nav-number">1.6.</span> <span class="nav-text">6. 添加图片</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#思路及代码"><span class="nav-number">1.</span> <span class="nav-text">思路及代码</span></a></li></ol></div>
             
 
           </div>
