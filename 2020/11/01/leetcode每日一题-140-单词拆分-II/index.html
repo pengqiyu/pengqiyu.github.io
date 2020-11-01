@@ -72,7 +72,7 @@
 
 
 
-  <meta name="keywords" content="leetcode,easy," />
+  <meta name="keywords" content="dfs,leetcode,hard," />
 
 
 
@@ -83,21 +83,22 @@
 
 
 
-<meta name="description" content="题目 代码123456789101112class Solution:    def reverseString(self, s: List[str]) -&gt; None:        &quot;&quot;&quot;        Do not return anything, modify s in-place instead.        &quot;&quot;&quot;">
+<meta name="description" content="题目 思路及代码 首先判断题目所给的字符串是否能由字典中的单词拆分，p[i]代表从i开始到结束的单词是否能由字典中的单词拆分开。  再用一个dfs(i,path)，递归的过程中记录下来当前所遍历到的单词。如果i&#x3D;&#x3D;len(s)，则把路径存放到res数组中。   12345678910111213141516171819202122232425class Solution:    def wordB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode每日一题-344. 反转字符串">
-<meta property="og:url" content="http://example.com/2020/10/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:title" content="leetcode每日一题-140. 单词拆分 II">
+<meta property="og:url" content="http://example.com/2020/11/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-140-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-II/index.html">
 <meta property="og:site_name" content="Pengqiyu&#39;blog">
-<meta property="og:description" content="题目 代码123456789101112class Solution:    def reverseString(self, s: List[str]) -&gt; None:        &quot;&quot;&quot;        Do not return anything, modify s in-place instead.        &quot;&quot;&quot;">
+<meta property="og:description" content="题目 思路及代码 首先判断题目所给的字符串是否能由字典中的单词拆分，p[i]代表从i开始到结束的单词是否能由字典中的单词拆分开。  再用一个dfs(i,path)，递归的过程中记录下来当前所遍历到的单词。如果i&#x3D;&#x3D;len(s)，则把路径存放到res数组中。   12345678910111213141516171819202122232425class Solution:    def wordB">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2020/10/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/1.png">
-<meta property="article:published_time" content="2020-10-08T14:40:07.000Z">
-<meta property="article:modified_time" content="2020-10-08T14:41:50.259Z">
+<meta property="og:image" content="http://example.com/2020/11/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-140-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-II/1.png">
+<meta property="article:published_time" content="2020-11-01T08:00:24.000Z">
+<meta property="article:modified_time" content="2020-11-01T08:06:25.861Z">
 <meta property="article:author" content="彭启宇">
+<meta property="article:tag" content="dfs">
 <meta property="article:tag" content="leetcode">
-<meta property="article:tag" content="easy">
+<meta property="article:tag" content="hard">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2020/10/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/1.png">
+<meta name="twitter:image" content="http://example.com/2020/11/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-140-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-II/1.png">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2020/10/08/leetcode每日一题-344-反转字符串/"/>
+  <link rel="canonical" href="http://example.com/2020/11/01/leetcode每日一题-140-单词拆分-II/"/>
 
 
 
 
 
-  <title>leetcode每日一题-344. 反转字符串 | Pengqiyu'blog</title>
+  <title>leetcode每日一题-140. 单词拆分 II | Pengqiyu'blog</title>
   
 
 
@@ -260,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2020/10/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2020/11/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-140-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-II/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="彭启宇">
@@ -277,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">leetcode每日一题-344. 反转字符串</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode每日一题-140. 单词拆分 II</h1>
         
 
         <div class="post-meta">
@@ -289,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-08T22:40:07+08:00">
-                2020-10-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-11-01T16:00:24+08:00">
+                2020-11-01
               </time>
             
 
@@ -343,7 +344,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  59
+                  194
                 </span>
               
 
@@ -380,8 +381,14 @@
       
 
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2020/10/08/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-344-%E5%8F%8D%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/1.png" alt="leetcode 344"></p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def reverseString(self, s: List[str]) -&gt; None:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Do not return anything, modify s in-place instead.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        i,j&#x3D;0,len(s)-1</span><br><span class="line">        while i&lt;j:</span><br><span class="line">            t&#x3D;s[i]</span><br><span class="line">            s[i]&#x3D;s[j]</span><br><span class="line">            s[j]&#x3D;t</span><br><span class="line">            i+&#x3D;1</span><br><span class="line">            j-&#x3D;1</span><br></pre></td></tr></table></figure>
+        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2020/11/01/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-140-%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86-II/1.png" alt="leetcode 140"></p>
+<h1 id="思路及代码"><a href="#思路及代码" class="headerlink" title="思路及代码"></a>思路及代码</h1><ul>
+<li><p>首先判断题目所给的字符串是否能由字典中的单词拆分，<code>p[i]</code>代表<code>从i开始到结束的单词</code>是否能由<code>字典中的单词</code>拆分开。</p>
+</li>
+<li><p>再用一个<code>dfs(i,path)</code>，递归的过程中记录下来当前所遍历到的单词。如果<code>i==len(s)</code>，则把路径存放到<code>res</code>数组中。</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wordBreak</span><span class="params">(self, s: str, word: List[str])</span> -&gt; List[str]:</span></span><br><span class="line">        res=[]</span><br><span class="line">        cache=set()</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">p</span><span class="params">(i)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> i==len(s):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            res=<span class="literal">False</span></span><br><span class="line">            cache.add(i)</span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> word:</span><br><span class="line">                <span class="keyword">if</span> x==s[i:i+len(x)]:</span><br><span class="line">                    <span class="keyword">if</span> i+len(x) <span class="keyword">not</span> <span class="keyword">in</span> cache:</span><br><span class="line">                        res|=p(i+len(x))</span><br><span class="line">            <span class="keyword">return</span> res</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> p(<span class="number">0</span>):</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(i,path)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> i==len(s):</span><br><span class="line">                res.append(path[:<span class="number">-1</span>])</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">for</span> x <span class="keyword">in</span> word:</span><br><span class="line">                <span class="keyword">if</span> x==s[i:i+len(x)]:</span><br><span class="line">                    dfs(i+len(x),path+x+<span class="string">' '</span>)</span><br><span class="line">        dfs(<span class="number">0</span>,<span class="string">''</span>)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -399,9 +406,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/dfs/" rel="tag"># dfs</a>
+          
             <a href="/tags/leetcode/" rel="tag"># leetcode</a>
           
-            <a href="/tags/easy/" rel="tag"># easy</a>
+            <a href="/tags/hard/" rel="tag"># hard</a>
           
         </div>
       
@@ -414,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/10/08/leetcode-1444-%E5%88%87%E6%8A%AB%E8%90%A8%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0/" rel="next" title="leetcode 1444. 切披萨的方案数">
-                <i class="fa fa-chevron-left"></i> leetcode 1444. 切披萨的方案数
+              <a href="/2020/10/22/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/" rel="next" title="leetcode每日一题-763. 划分字母区间">
+                <i class="fa fa-chevron-left"></i> leetcode每日一题-763. 划分字母区间
               </a>
             
           </div>
@@ -423,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/10/22/leetcode%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98-763-%E5%88%92%E5%88%86%E5%AD%97%E6%AF%8D%E5%8C%BA%E9%97%B4/" rel="prev" title="leetcode每日一题-763. 划分字母区间">
-                leetcode每日一题-763. 划分字母区间 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -558,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路及代码"><span class="nav-number">2.</span> <span class="nav-text">思路及代码</span></a></li></ol></div>
             
 
           </div>
